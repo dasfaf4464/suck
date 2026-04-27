@@ -1,0 +1,35 @@
+# 초기 설정
+addi x10, x0, 10      # x10 (a0) = 에이전트 수 (Loop Counter)
+addi x11, x0, 512     # x11 (a1) = 데이터 시작 주소 (0x200)
+addi x12, x0, 768     # x12 (a2) = 결과 저장 주소 (0x300)
+addi x13, x0, 7       # x13 (a3) = 감쇠 에너지 값 (데미지)
+
+loop:
+    beq x10, x0, exit     # 에이전트 수(x10)가 0이면 종료 (Exit)
+
+    # 1. 데이터 로드 (Fetch Data from Memory)
+    lw  x14, 0(x11)       # x14 = Memory[x11] (에이전트의 현재 에너지)
+
+    # 2. 연산 (ALU 작업)
+    sub x14, x14, x13     # 에너지 - 데미지
+
+    # 3. 조건 분기 (CU 판단)
+    blt x14, x0, dead     # 결과가 0보다 작으면 dead로 점프
+    addi x15, x0, 1       # 0보다 크면 x15 = 1 (생존 상태)
+    jal x0, store         # 저장 로직으로 점프
+
+dead:
+    addi x15, x0, 0       # x15 = 0 (사망 상태)
+
+store:
+    # 4. 결과 저장 (Store Data to Memory)
+    sw  x15, 0(x12)       # Memory[x12] = 생존 여부(x15)
+
+    # 5. 포인터 업데이트
+    addi x11, x11, 4      # 데이터 주소 + 4 (다음 워드)
+    addi x12, x12, 4      # 결과 주소 + 4
+    addi x10, x10, -1     # 카운터 - 1
+    jal x0, loop          # 루프의 처음으로 돌아감
+
+exit:
+    ebreak                # 시스템 종료 시그널 (VM 정지)
