@@ -1,0 +1,15 @@
+# comment test
+
+     space test
+	tab test
+retrun test \r
+space    between     words
+   tab	between		word
+
+# correct output lines
+#  [
+#    "tab test",
+#    "return test",
+#    "space    between   words",
+#    "tab\tbetween\tword"
+# ]
