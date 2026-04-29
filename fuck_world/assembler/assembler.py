@@ -1,9 +1,9 @@
-from riscv import FileReader, Lexer
+import riscv
 
 class Assembler:
     def __init__(self):
-        self.file_reader = FileReader()
-        self.lexer = Lexer()
+        self.file_reader = riscv.FileReader()
+        self.lexer = riscv.Lexer()
 
     def run(self, file_path):
         print("run Assembler")
