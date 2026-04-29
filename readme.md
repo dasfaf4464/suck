@@ -8,6 +8,7 @@
 * Little Endian
 * 2's compliment
 * data protocol = (str)
+* not distinguish uppercase and lowercase, all characters are changed to lowercase
 ---
 ## Virtual Machine
 ### spec

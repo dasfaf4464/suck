@@ -28,8 +28,9 @@ class FileReader:
             carriage = comment.replace("\r", "").replace("\\r", "")
             space = carriage.strip(" ")
             tab = space.strip("\t")
-            if tab and tab != "\n":
-                self.processed_lines.append(tab)
+            lower_case = tab.lower()
+            if lower_case and lower_case != "\n":
+                self.processed_lines.append(lower_case)
 
 
 if __name__ == "__main__":
