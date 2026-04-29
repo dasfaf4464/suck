@@ -1,16 +1,25 @@
-###### fuck the world and you reading this.
-###### I hope you have your the worst day of life. and hope you have accidents all of the worst things
+# RISC-V Assembler & Virtual Machine
 
-# RISC-V architecture
-## spec
+## Assembler
+### target assemmbly language
+* RISC-V
+### spec
+* two-pass
+* Little Endian
+* 2's compliment
+* data protocol = (str)
+---
+## Virtual Machine
+### spec
 * 32 + 2(MDR, MAR) register
 * Little Endian
 * 2's compliment
 * 1 Word = 32bits
-* data protocol = str
-    **Delimiter( , space )** is allowed 
-    - "00000000000000000000000000001111"
-    - "00000000,00000000,00000000,00001111"
-    - "00000000 00000000 00000000 00001111"
-    **suffix (0b) is allowed**
-    - "0b 00000000 00000000 00000000 00001111"
+* data protocol = (str)
+---
+##### Deeply personal thoughts
+* 
+
+##### Reference from
+* **「The RISC-V Reader: An Open Architecture Atlas Beta Edition, 0.0.1」** by _David Patterson and Andrew Waterman_
+* **「System Software : An Introduction to System Programming, 3rd Ed」** by _Leland L. Beck_
