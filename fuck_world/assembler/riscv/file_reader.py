@@ -20,7 +20,7 @@ class FileReader:
         """
         remove comment(#) line
         remove carriage return(\r)
-        remove space(\t, ' ')
+        remove space(\t, ' ') -> if space in string then it must be maintain it's original form
         """
         lines = self.raw_lines
         for line in lines:
@@ -29,7 +29,7 @@ class FileReader:
             space = carriage.strip(" ")
             tab = space.strip("\t")
             lower_case = tab.lower()
-            if lower_case and lower_case != "\n":
+            if lower_case:
                 self.processed_lines.append(lower_case)
 
 

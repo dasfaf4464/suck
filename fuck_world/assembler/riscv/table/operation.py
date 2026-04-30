@@ -3,14 +3,12 @@ RISC-V RV32I
 operation map
 """
 
-# type
-R="r", I="i", U="u", B="b", J="j", S="s"
 
 # field
 OP = "opcode"
 F3 = "funct3"
 F7 = "funct7"
-RD = "rd", RS1 = "rs1", RS2 = "rs2"
+RD, RS1, RS2 = "rd", "rs1", "rs2"
 IMD = "immediate"
 FMT = "format"
 
