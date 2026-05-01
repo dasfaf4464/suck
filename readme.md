@@ -8,6 +8,8 @@
 * Little Endian
 * 2's compliment
 * data protocol = (str)
+* not distinguish uppercase and lowercase, all characters are changed to lowercase
+* escape sequence [new line] is statement terminator
 ---
 ## Virtual Machine
 ### spec
@@ -23,3 +25,4 @@
 ##### Reference from
 * **「The RISC-V Reader: An Open Architecture Atlas Beta Edition, 0.0.1」** by _David Patterson and Andrew Waterman_
 * **「System Software : An Introduction to System Programming, 3rd Ed」** by _Leland L. Beck_
+* (https://github.com/oils-for-unix/oils/wiki/Why-Lexing-and-Parsing-Should-Be-Separate)
