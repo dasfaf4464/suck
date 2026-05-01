@@ -18,9 +18,9 @@ class FileReader:
 
     def preprocess(self):
         """
-        remove comment(#) line
-        remove carriage return(\r)
-        remove space(\t, ' ') -> if space in string then it must be maintain it's original form
+        - remove comment(#) line
+        - remove carriage return(\r)
+        - remove space(\t, ' ') at start and end-> if space in string then it must be maintain it's original form
         """
         lines = self.raw_lines
         for line in lines:
