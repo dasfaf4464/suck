@@ -24,8 +24,13 @@ class FileReader:
         """
         lines = self.raw_lines
         for line in lines:
-            comment = line.split("#")[0]
-            carriage = comment.replace("\r", "").replace("\\r", "")
+            comment_split = line.split("#")
+            no_comment = comment_split[0] 
+            if len(comment_split) == 2:
+                if comment_split[1].find("\n"):
+                    no_comment += "\n"
+
+            carriage = no_comment.replace("\r", "").replace("\\r", "")
             space = carriage.strip(" ")
             tab = space.strip("\t")
             lower_case = tab.lower()

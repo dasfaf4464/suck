@@ -1,7 +1,7 @@
 from typing import Literal
 from dataclasses import dataclass
 import re
-from table import OPCODE_TABLE, REGISTER_TABLE
+from .table import OPCODE_TABLE, REGISTER_TABLE
 
 
 @dataclass
@@ -62,7 +62,7 @@ class Lexer:
             token.type = Token.MNEMONIC
         elif word in REGISTER_TABLE:
             token.type = Token.REGISTER
-        elif re.fullmatch(r"-?+(\d)*", word):
+        elif re.fullmatch("-?+(\d)*", word):
             token.type = Token.CONSTANT
         elif word.startswith('%'):
             token.type = Token.MODIFIER
@@ -74,7 +74,7 @@ class Lexer:
             token.type = Token.RPAREN
         elif word.startswith('.'):
             token.type = Token.DIRECTIVE
-        elif re.fullmatch(r"([a-z]+\d*)*+:", word):
+        elif re.fullmatch("([a-z]+\d*)*+:", word):
             token.type = Token.LABEL
         elif word == "\n":
             token.type = Token.NEWLINE
